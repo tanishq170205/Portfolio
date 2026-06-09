@@ -108,7 +108,7 @@ const Skills = () => {
             </div>
             <div>
               <strong>DSA & Problem Solving</strong>
-              <p>150+ problems solved across LeetCode & CodeForces. Strong in Trees, Graphs, DP, Segment Trees.</p>
+              <p>500+ problems solved across LeetCode & CodeForces. Strong in Trees, Graphs, DP, Segment Trees.</p>
             </div>
           </div>
         </div>
