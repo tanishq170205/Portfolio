@@ -7,9 +7,31 @@ const Contact = () => {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    
+    const formData = new FormData(e.target);
+    formData.append("access_key", "7c1a46d3-8717-4c46-abd4-0ae313adf98c");
+    
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json
+      }).then((res) => res.json());
+
+      if (res.success) {
+        setSubmitted(true);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
 
   return (
