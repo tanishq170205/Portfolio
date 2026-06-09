@@ -145,9 +145,19 @@
 @media (max-width: 900px) {
   .about__grid {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
   }
+  .about__photo-container { max-width: 260px; margin: 0 auto; }
+  .about__photo { max-width: 260px; }
+}
 
-  .about__photo-container { max-width: 280px; margin: 0 auto; }
-  .about__photo { max-width: 280px; }
+@media (max-width: 480px) {
+  .about__photo-container { max-width: 200px; }
+  .about__photo { max-width: 200px; }
+  .about__quick-facts { grid-template-columns: 1fr 1fr; }
+  .about__fact { padding: 10px 12px; }
+  .about__fact-value { font-size: 0.88rem; }
+  .about__cta-row { flex-direction: column; }
+  .about__cta-row .btn { width: 100%; justify-content: center; }
+  .about__para { font-size: 0.9rem; }
 }

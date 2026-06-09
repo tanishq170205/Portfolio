@@ -281,9 +281,19 @@ body {
   box-shadow: 0 8px 30px rgba(201, 168, 76, 0.2);
 }
 
-/* Responsive */
+/* ── Mobile Responsive ── */
 @media (max-width: 768px) {
-  :root { --section-pad: 80px; }
-  .container { padding: 0 20px; }
+  :root {
+    --section-pad: 70px;
+    --container-max: 100%;
+  }
+  .container { padding: 0 18px; }
   html, body, *, a, button { cursor: auto !important; }
+  .section-title { font-size: clamp(1.6rem, 6vw, 2.4rem); }
+}
+
+@media (max-width: 480px) {
+  :root { --section-pad: 56px; }
+  .container { padding: 0 14px; }
+  .btn { padding: 12px 20px; font-size: 0.72rem; }
 }
