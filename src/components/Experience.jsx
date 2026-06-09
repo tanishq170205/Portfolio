@@ -26,14 +26,14 @@ const EDUCATION = [
   {
     degree: 'Class XII — Science',
     institution: 'Jai Jyoti School JJFT',
-    period: '2021',
-    detail: 'Score: 93%',
+    period: '2022',
+    detail: 'Score: 89%',
     location: 'Guna, India',
   },
   {
     degree: 'Class X',
     institution: 'Jai Jyoti School JJFT',
-    period: '2018',
+    period: '2020',
     detail: 'Score: 90%',
     location: 'Guna, India',
   },
