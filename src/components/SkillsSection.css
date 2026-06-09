@@ -1,0 +1,178 @@
+.skills-layout {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 4rem;
+}
+
+.invisible {
+  opacity: 0;
+}
+
+.category-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.inline-icon {
+  color: var(--neon-cyan);
+}
+
+.skill-category {
+  margin-bottom: 3rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.skill-tags span {
+  padding: 0.6rem 1.2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.skill-tags span:hover {
+  background: rgba(0, 240, 255, 0.1);
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  transform: translateY(-2px);
+}
+
+.exploring-card {
+  padding: 2rem;
+  border-left: 4px solid var(--neon-purple);
+}
+
+.exploring-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.exploring-header h3 {
+  font-size: 1.4rem;
+}
+
+.exploring-list {
+  list-style: none;
+}
+
+.exploring-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+.exploring-list li svg {
+  color: var(--neon-purple);
+}
+
+.github-card {
+  padding: 2.5rem;
+  height: 100%;
+}
+
+.github-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.github-header h3 {
+  font-size: 1.5rem;
+  font-family: var(--font-mono);
+}
+
+.github-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.gh-stat {
+  padding: 1.5rem;
+  background: rgba(0,0,0,0.4);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.gh-num {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  color: var(--neon-blue);
+  margin-bottom: 0.5rem;
+}
+
+.gh-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.top-languages h4 {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.lang-bar {
+  display: flex;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.lang.python { background: #3572A5; }
+.lang.cpp { background: #f34b7d; }
+.lang.js { background: #f1e05a; }
+
+.lang-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.lang-legend span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.python-dot { background: #3572A5; }
+.cpp-dot { background: #f34b7d; }
+.js-dot { background: #f1e05a; }
+
+@media (max-width: 992px) {
+  .skills-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .invisible {
+    display: none;
+  }
+}

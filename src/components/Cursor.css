@@ -1,0 +1,62 @@
+/* Custom Cursor */
+.cursor {
+  position: fixed;
+  top: -6px;
+  left: -6px;
+  width: 12px;
+  height: 12px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transition: transform 0.15s var(--ease-snap), width 0.3s var(--ease-snap), height 0.3s var(--ease-snap), opacity 0.3s;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+
+.cursor--hovered {
+  width: 20px;
+  height: 20px;
+  top: -10px;
+  left: -10px;
+}
+
+.cursor--clicked {
+  transform: scale(0.7) !important;
+}
+
+.cursor--hidden {
+  opacity: 0;
+}
+
+/* Follower circle */
+.cursor-follower {
+  position: fixed;
+  top: -20px;
+  left: -20px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(201, 168, 76, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transition: width 0.4s var(--ease-snap), height 0.4s var(--ease-snap), border-color 0.4s, opacity 0.3s, background 0.4s;
+  will-change: transform;
+}
+
+.cursor-follower--hovered {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: -30px;
+  border-color: rgba(201, 168, 76, 0.3);
+  background: rgba(201, 168, 76, 0.05);
+}
+
+.cursor-follower--hidden {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .cursor, .cursor-follower { display: none; }
+}

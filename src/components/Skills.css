@@ -1,0 +1,143 @@
+.skills {
+  background: var(--bg-primary);
+}
+
+/* Tabs */
+.skills__tabs {
+  display: flex;
+  gap: 4px;
+  margin: 40px 0 32px;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+.skills__tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 12px 22px;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-cinematic);
+  text-transform: uppercase;
+  margin-bottom: -1px;
+}
+
+.skills__tab-icon {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.skills__tab:hover {
+  color: var(--text-secondary);
+}
+
+.skills__tab--active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+/* Panel */
+.skills__panel {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Skills Grid */
+.skills__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 40px;
+}
+
+.skill-item { }
+
+.skill-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.skill-item__name {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.skill-item__level {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.skill-item__bar {
+  height: 3px;
+  background: var(--bg-card);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.skill-item__fill {
+  height: 100%;
+  width: 0;
+  border-radius: 2px;
+  background: var(--skill-color, var(--gold));
+  animation: fillBar 0.9s var(--ease-snap) forwards;
+}
+
+@keyframes fillBar {
+  from { width: 0; }
+  to { width: var(--skill-width, 0%); }
+}
+
+/* DSA Card */
+.skills__dsa-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 100px;
+}
+
+.skills__dsa-icon {
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.skills__dsa-card strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.skills__dsa-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .skills__panel { grid-template-columns: 1fr; }
+  .skills__dsa-card { position: static; }
+}
+
+@media (max-width: 600px) {
+  .skills__grid { grid-template-columns: 1fr; }
+  .skills__tabs { gap: 0; }
+  .skills__tab { padding: 10px 14px; font-size: 0.7rem; }
+}

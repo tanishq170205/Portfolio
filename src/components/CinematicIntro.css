@@ -1,0 +1,258 @@
+/* ===========================
+   CINEMATIC INTRO — VIDEO EDITION
+   =========================== */
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.intro--exit {
+  opacity: 0;
+  transform: scale(1.04);
+  pointer-events: none;
+}
+
+/* ── Fullscreen Video ── */
+.intro__video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.intro__video-el {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.55) saturate(1.2) contrast(1.05);
+}
+
+/* ── Gradient: dark left for text, lighter right to show your face ── */
+.intro__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.15) 100%),
+    linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 25%, transparent 75%, rgba(0,0,0,0.5) 100%);
+}
+
+/* ── Letterbox bars ── */
+.intro__bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.intro__bar--top {
+  top: 0;
+  height: clamp(50px, 9vh, 85px);
+  background: #000;
+  animation: barSlideTop 0.5s var(--ease-snap) forwards;
+}
+
+.intro__bar--bottom {
+  bottom: 0;
+  height: clamp(50px, 9vh, 85px);
+  background: #000;
+  animation: barSlideBottom 0.5s var(--ease-snap) forwards;
+}
+
+@keyframes barSlideTop {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0); }
+}
+@keyframes barSlideBottom {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+.intro--exit .intro__bar--top    { animation: barExitTop 0.6s var(--ease-snap) forwards; }
+.intro--exit .intro__bar--bottom { animation: barExitBottom 0.6s var(--ease-snap) forwards; }
+
+@keyframes barExitTop    { to { transform: translateY(-100%); } }
+@keyframes barExitBottom { to { transform: translateY(100%); } }
+
+/* ── Left-side Content (Jyoti Sinha style) ── */
+.intro__center {
+  position: absolute;
+  left: 6vw;
+  bottom: calc(clamp(50px,9vh,85px) + 40px);
+  z-index: 3;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  max-width: 55%;
+}
+
+/* ── Logo ── */
+.intro__logo {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: rgba(201,168,76,0.7);
+  letter-spacing: 0.35em;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  margin-bottom: 4px;
+}
+.intro__logo--visible { opacity: 1; transform: translateY(0); }
+.intro__logo-bracket  { color: var(--gold); font-size: 1.05rem; }
+.intro__logo-text     { margin: 0 4px; }
+
+/* ── Name ── */
+.intro__name {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 8vw, 7.5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  white-space: nowrap;
+  text-shadow: 0 4px 40px rgba(0,0,0,0.8);
+}
+
+/* Keep each word together, never break */
+.intro__name-word {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.intro__name-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(70px);
+  color: #fff;
+}
+
+.intro__name--visible .intro__name-char {
+  animation: charReveal 0.55s var(--ease-snap) forwards;
+}
+
+.intro__name-char--gold  { color: var(--gold); }
+.intro__name-char--space { width: 0.25em; }
+
+@keyframes charReveal {
+  from { opacity: 0; transform: translateY(70px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Tagline ── */
+.intro__tagline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s;
+}
+.intro__tagline--visible { opacity: 1; transform: translateY(0); }
+
+.intro__tag {
+  font-family: var(--font-mono);
+  font-size: clamp(0.65rem, 2vw, 0.9rem);
+  color: rgba(245,240,232,0.85);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.9);
+}
+
+.intro__tag-divider {
+  color: var(--gold);
+  font-size: 0.45rem;
+}
+
+/* ── Meta ── */
+.intro__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(201,168,76,0.65);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+  flex-wrap: wrap;
+}
+.intro__meta--visible { opacity: 1; transform: translateY(0); }
+.intro__meta-dot { color: var(--gold); font-size: 0.38rem; }
+
+/* ── Corner Decorators ── */
+.intro__corner {
+  position: absolute;
+  z-index: 3;
+  width: 28px;
+  height: 28px;
+}
+.intro__corner span            { position: absolute; background: rgba(201,168,76,0.6); }
+.intro__corner span:first-child { width: 100%; height: 1px; top: 0; }
+.intro__corner span:last-child  { width: 1px; height: 100%; top: 0; }
+
+.intro__corner--tl { top: calc(clamp(50px,9vh,85px) + 16px); left: 32px; }
+.intro__corner--tr { top: calc(clamp(50px,9vh,85px) + 16px); right: 32px; transform: scaleX(-1); }
+.intro__corner--bl { bottom: calc(clamp(50px,9vh,85px) + 16px); left: 32px; transform: scaleY(-1); }
+.intro__corner--br { bottom: calc(clamp(50px,9vh,85px) + 16px); right: 32px; transform: scale(-1); }
+
+/* ── Frame counter (bottom right of bar) ── */
+.intro__frame-counter {
+  position: absolute;
+  bottom: calc(clamp(50px,9vh,85px) * 0.25);
+  right: 32px;
+  display: flex;
+  gap: 14px;
+  z-index: 3;
+}
+.intro__frame-counter span {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  color: rgba(201,168,76,0.4);
+  letter-spacing: 0.15em;
+}
+
+/* ── Skip ── */
+.intro__skip {
+  position: absolute;
+  bottom: calc(clamp(50px,9vh,85px) * 0.2);
+  left: 32px;
+  background: none;
+  border: 1px solid rgba(201,168,76,0.2);
+  color: rgba(201,168,76,0.5);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  transition: all 0.3s;
+  z-index: 4;
+}
+.intro__skip:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(201,168,76,0.08);
+}
+
+@media (max-width: 600px) {
+  .intro__corner, .intro__frame-counter { display: none; }
+  .intro__skip { left: 16px; }
+}

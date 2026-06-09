@@ -1,0 +1,56 @@
+.research-project {
+  padding: 5rem 0;
+  background-color: var(--bg-secondary);
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.research-info h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.research-desc {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.research-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.research-visual {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.visual-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg-color);
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.visual-row span {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .research-grid {
+    grid-template-columns: 1fr;
+  }
+}
